@@ -1,4 +1,4 @@
-name: PyGC Operator Checker CI
+name: Security Checks
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
       - PyGC
 
 jobs:
-  test:
+  security:
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,11 +27,15 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+      - name: Install Bandit and Safety
         run: |
           python -m pip install --upgrade pip
-          pip install pytest
+          pip install bandit safety
 
-      - name: Run tests
+      - name: Run Bandit for security linting
         run: |
-          PYTHONPATH=. pytest tests/
+          bandit -r bot/
+
+      - name: Check for vulnerable dependencies with Safety
+        run: |
+          safety check --full-report
