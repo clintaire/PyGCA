@@ -1,12 +1,8 @@
-# Byte-compiled / optimized / DLL files
+# Ignore Python bytecode files
 __pycache__/
 *.py[cod]
-*.so
 
-# pytest cache
-.pytest_cache/
-
-# Environment variables
+# Ignore virtual environment files (optional)
 .env
 .venv/
 env/
