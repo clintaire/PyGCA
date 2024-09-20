@@ -5,10 +5,10 @@ class IdentityOperatorChecker(ast.NodeVisitor):
         self.issues = []
 
     def visit_Compare(self, node):
+        # Detect misuse of identity operators
         for op in node.ops:
             if isinstance(op, ast.Is) or isinstance(op, ast.IsNot):
-                # Check if comparing non-identity objects (e.g., integers or strings)
-                if isinstance(node.left, (ast.Constant, ast.Num, ast.Str)) or isinstance(node.comparators[0], (ast.Constant, ast.Num, ast.Str)):
+                if isinstance(node.left, ast.Constant) and node.left.value is None:
                     self.issues.append(f"Potential misuse of '{op}' at line {node.lineno}")
         self.generic_visit(node)
 

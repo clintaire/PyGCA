@@ -1,10 +1,10 @@
-import pytest
-from bot.identity_membership.identity_checker import IdentityOperatorChecker
 import ast
 import textwrap
+from bot.identity_membership.identity_checker import IdentityOperatorChecker
 
 def test_identity_operator_detection():
-    source_code = textwrap.dedent("""
+    # Old logic
+    old_logic_code = textwrap.dedent("""
         def identity_check():
             if a is b:  # Correct usage
                 return True
@@ -12,10 +12,25 @@ def test_identity_operator_detection():
                 return False
     """)
     
-    tree = ast.parse(source_code)
-    checker = IdentityOperatorChecker()
-    checker.visit(tree)
-    issues = checker.get_issues()
+    # New logic
+    new_logic_code = textwrap.dedent("""
+        def identity_check():
+            if a is b:
+                return True
+            if a is not None:  # Correct usage
+                return False
+    """)
 
-    # Expect no misuse
-    assert len(issues) == 0
+    # Test old logic
+    tree_old = ast.parse(old_logic_code)
+    checker_old = IdentityOperatorChecker()
+    checker_old.visit(tree_old)
+    issues_old = checker_old.get_issues()
+    assert len(issues_old) == 0  # No issues in old logic
+
+    # Test new logic
+    tree_new = ast.parse(new_logic_code)
+    checker_new = IdentityOperatorChecker()
+    checker_new.visit(tree_new)
+    issues_new = checker_new.get_issues()
+    assert len(issues_new) == 0  # No issues in new logic
