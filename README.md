@@ -1,5 +1,10 @@
 # Python Operator Detection & Analysis ' PYGC
 
+<div style="border: 2px solid #ccc; border-radius: 8px; padding: 10px; display: inline-block; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg" alt="Mental calculation at primary school" width="300px" />
+  <p style="text-align: center; font-style: italic;">Image Credit: <a href="https://en.wikipedia.org/wiki/Arithmetic">Wikipedia</a></p>
+</div>
+
 ## Overview
 PyGC is a Python library designed to detect, analyze, and optimize the usage of operators in Python codebases. This tool ensures proper and efficient operator use, highlights potential misuse, and helps prevent performance issues or code vulnerabilities.
 
@@ -137,4 +142,4 @@ To ensure everything is working, you can run _PyGC’s_ test suite using pytest.
 
 Copyright 2024-present Clint Airé.
 
-The [PYGC](https://github.com/clintaire/mypy) repository is released under the [MIT](https://github.com/clintaire/mypy/blob/main/LICENSE.md) license.
+The [PYGC](https://github.com/clintaire/PyGC) repository is released under the [MIT](https://github.com/clintaire/PyGC/blob/main/LICENSE.md) license.
