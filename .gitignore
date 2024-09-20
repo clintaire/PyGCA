@@ -1,0 +1,21 @@
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment files
+.env
+.venv/
+env/
+venv/
+
+# Ignore .pypirc to prevent exposing tokens
+.pypirc
+
+# Ignore distribution and build files
+dist/
+build/
+*.egg-info/
+
+# Ignore IDE specific files (optional)
+.vscode/
+.idea/
