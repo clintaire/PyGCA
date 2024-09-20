@@ -1,8 +1,8 @@
 # PYGC v0.1 | PYTHON OPERATOR DETECTION & ANALYSIS
 
-| ![Mental calculation at primary school](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg) |
+| ![Mental calculation](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg) |
 |:--:|
-| Mental calculation: [Wikipedia](https://en.wikipedia.org/wiki/Arithmetic) |
+| *Image: Wikipedia* |
 
 ## Overview
 **PyGC** is a Python library, independently developed and actively maintained to detect, analyze, and optimize operator usage in Python codebases. With a focus on efficiency and ease of use, this tool empowers developers to identify performance bottlenecks and potential vulnerabilities stemming from operator misuse.
