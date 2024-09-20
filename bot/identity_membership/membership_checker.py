@@ -7,7 +7,6 @@ class MembershipOperatorChecker(ast.NodeVisitor):
     def visit_Compare(self, node):
         for op in node.ops:
             if isinstance(op, ast.In) or isinstance(op, ast.NotIn):
-                # Check if the left operand is non-iterable (e.g., numbers)
                 if isinstance(node.left, (ast.Num, ast.Str)):
                     self.issues.append(f"Potential misuse of '{op}' at line {node.lineno}")
         self.generic_visit(node)
