@@ -1,14 +1,20 @@
-# Python Operator Detection & Analysis ' PYGC
+# PYGC v0.1 | PYTHON OPERATOR DETECTION & ANALYSIS
 
-<div style="border: 2px solid #ccc; border-radius: 8px; padding: 10px; display: inline-block; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
+<div style="border: 2px solid #ccc; padding: 10px; display: inline-block;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg" alt="Mental calculation at primary school" width="300px" />
-  <p style="text-align: center; font-style: italic;">Image Credit: <a href="https://en.wikipedia.org/wiki/Arithmetic">Wikipedia</a></p>
+  <p style="text-align: center; font-style: italic;">
+    Image Credit: <a href="https://en.wikipedia.org/wiki/Arithmetic">Wikipedia</a>
+  </p>
 </div>
 
 ## Overview
-PyGC is a Python library designed to detect, analyze, and optimize the usage of operators in Python codebases. This tool ensures proper and efficient operator use, highlights potential misuse, and helps prevent performance issues or code vulnerabilities.
+**PyGC** is a Python library, independently developed and actively maintained to detect, analyze, and optimize operator usage in Python codebases. With a focus on efficiency and ease of use, this tool empowers developers to identify performance bottlenecks and potential vulnerabilities stemming from operator misuse.
 
-The tool covers major operator categories, offering insight into how different operators work together and where potential optimizations can occur.
+The library covers __all major operator categories__, providing insights into how operators interact within the code and where optimizations can improve overall performance. As an actively maintained project, __PyGC__ continually evolves to stay relevant with Python’s latest updates and to incorporate user feedback for better functionality.
+
+<p align="center">
+  <strong>Important Notice:</strong> This project is not affiliated with or related to the <a href="https://pypi.org/project/pygc/">PyGC package on PyPI</a>.
+</p>
 
 ## Key Features
 - **Multi-operator detection**:
@@ -22,7 +28,7 @@ The tool covers major operator categories, offering insight into how different o
 - **Detailed reporting** on operator misuse
 - **Customizable settings** for different project needs
 
-> [!TIP]
+> **[!TIP]**
 > To better understand the __functional__ areas of each operator category and where they overlap, the following  diagram visually represents the __scope__ of PyGC:
 
 ```plaintext
@@ -40,15 +46,15 @@ The tool covers major operator categories, offering insight into how different o
                             | Identity & Membership Ops  |
                             +----------------------------+
 ```
-## [Go __to__ Installation](#installation)
+## [Go to Installation](#installation)
 
-1. Clone the `repository`:
-```shell
+**1. Clone the `repository`:**
+```bash
    git clone https://github.com/clintaire/PyGC.git
    cd PyGC
 ```
-2. `Install` dependencies:
-```shell
+**2. `Install` dependencies:**
+```bash
    pip install -r requirements.txt
 ```
 
@@ -58,7 +64,7 @@ __Run__ the __Operator__ Analysis
 
 You can analyze __any__ Python script for __operator__ usage with a simple __command__:
 
-```shell
+```bash
    python3 -m bot.operator_analysis path/to/your_script.py
 ```
 Here’s a basic Python script with various operators that __PyGC__ can analyze:
@@ -80,12 +86,16 @@ Here’s a basic Python script with various operators that __PyGC__ can analyze:
     return result
 ```
 
-Run PyGC and Inspect Output / __Basically__ to inspect the code above
-> python3 -m bot.operator_analysis analyze_example.py
+**Run PyGC and Inspect Output / __Basically__ to inspect the code above**
 
-__Sample__ Output:
-> ["Arithmetic Addition detected at line 4", "Logical AND detected at line 7", "Bitwise AND detected at line 12"]
+```bash
+   python3 -m bot.operator_analysis analyze_example.py
+```
+**Sample Output:**
 
+```bash
+   ["Arithmetic Addition detected at line 4", "Logical AND detected at line 7", "Bitwise AND detected at line 12"]
+```
 __The following truth table demonstrates logical operator results and their detection by PyGC:__
 
 |       Expression        |       Expected Result            |     Detected Issue     |
@@ -95,14 +105,17 @@ __The following truth table demonstrates logical operator results and their dete
 |    True and False       |      Data                        |    No issue            |
 |    not True             |      False                       |    No issue            |
 |    a and not b          |      Depends on vars             |    No issue            |
-|    a & b (bitwise AND)  |      Depends on bits             |   🔴 Misuse _Alert_    |
+|    a & b (bitwise AND)  |      Depends on bits             |   Misuse 🔴 Alert!     |
 
 
 > [!NOTE]
 > You can modify PyGC’s behavior to handle special cases or focus on specific operator categories. To run only the arithmetic or comparison checks, you can adjust configuration files or pass custom flags during execution
 
-__To only check for Arithmetic Operators__
->python3 -m bot.operator_analysis --check-arithmetic path/to/script.py
+**To only check for Arithmetic Operators**
+
+```bash
+   python3 -m bot.operator_analysis --check-arithmetic path/to/script.py
+```
 
 
 - When running PyGC on a larger codebase or a real-world project, it’s important to use modular analysis and profiling techniques to measure performance impact. Here’s how to profile the performance:
@@ -133,10 +146,52 @@ Running the above :top: code will allow you to test PyGC on __large__ scripts, a
 
 # Testing
 
-To ensure everything is working, you can run _PyGC’s_ test suite using pytest. This will validate the detection algorithms against various test cases:
+**To ensure everything is working, you can run _PyGC’s_ test suite using pytest. This will validate the detection algorithms against various test cases:**
 
->PYTHONPATH=. pytest tests/
+```bash
+   PYTHONPATH=. pytest tests/
+```
 
+**Upon successful execution, the terminal output should ⇙ appear as below:**
+
+```python
+======================================== test session starts ========================================
+platform linux -- Python 3.11.2, pytest-8.3.3, pluggy-1.5.0
+rootdir: /home/username/PyGC
+collected 10 items                                                                                  
+
+tests/test_arithmetic_checker.py .                                                            [ 10%]
+tests/test_bitwise_checker.py .                                                               [ 20%]
+tests/test_comparison_checker.py .                                                            [ 30%]
+tests/test_identity_checker.py .                                                              [ 40%]
+tests/test_logical_checker.py .                                                               [ 50%]
+tests/test_membership_checker.py .                                                            [ 60%]
+tests/test_operator_detection.py ....                                                         [100%]
+
+======================================== 10 passed in 0.21s =========================================
+```
+
+## Contributing
+
+We welcome contributions! If you'd like to contribute to PyGC, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix: `git checkout -b my-new-feature`
+3. Make your changes and commit them: `git commit -am 'Add new feature'`
+4. Push the branch: `git push origin my-new-feature`
+5. Create a new Pull Request.
+
+Make sure to run the tests with `pytest` and ensure everything is working before submitting your PR.
+
+For more details, see the [Contributing Guide](https://github.com/clintaire/PyGC/blob/main/CONTRIBUTING.md).
+
+## How to Follow
+
+Stay updated with the latest changes to PyGC by following the repository on GitHub:
+
+- Watch the repository to get notifications for updates.
+- Star the repository if you find it useful.
+- Follow [Clint Airé](https://github.com/clintaire) for updates on PyGC and other projects.
 
 ## LICENSE
 
