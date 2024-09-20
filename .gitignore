@@ -2,11 +2,20 @@
 __pycache__/
 *.py[cod]
 
-# Ignore virtual environment files (optional)
+# Ignore virtual environment files
 .env
 .venv/
 env/
 venv/
 
-# Sample code
-sample_code/
+# Ignore .pypirc to prevent exposing tokens
+.pypirc
+
+# Ignore distribution and build files
+dist/
+build/
+*.egg-info/
+
+# Ignore IDE specific files (optional)
+.vscode/
+.idea/

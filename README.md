@@ -153,20 +153,20 @@ Running the above :top: code will allow you to test PyGC on __large__ scripts, a
 **Upon successful execution, the terminal output should ⇙ appear as below:**
 
 ```python
-======================================== test session starts =====================
+======================================== test session starts =================================
 platform linux -- Python 3.11.2, pytest-8.3.3, pluggy-1.5.0
 rootdir: /home/username/PyGC
 collected 10 items                                                                                  
 
-tests/test_arithmetic_checker.py .                                          [ 10%]
-tests/test_bitwise_checker.py .                                             [ 20%]
-tests/test_comparison_checker.py .                                          [ 30%]
-tests/test_identity_checker.py .                                            [ 40%]
-tests/test_logical_checker.py .                                             [ 50%]
-tests/test_membership_checker.py .                                          [ 60%]
-tests/test_operator_detection.py ....                                       [100%]
+tests/test_arithmetic_checker.py .                                                     [ 10%]
+tests/test_bitwise_checker.py .                                                        [ 20%]
+tests/test_comparison_checker.py .                                                     [ 30%]
+tests/test_identity_checker.py .                                                       [ 40%]
+tests/test_logical_checker.py .                                                        [ 50%]
+tests/test_membership_checker.py .                                                     [ 60%]
+tests/test_operator_detection.py ....                                                  [100%]
 
-======================================== 10 passed in 0.21s ======================
+======================================== 10 passed in 0.21s ==================================
 ```
 
 ## Contributing
@@ -199,4 +199,4 @@ Join the community and stay updated with the latest changes to PyGC by following
 
 Copyright 2024-Present Clint Airé.
 
-The [PYGC](https://github.com/clintaire/PyGC) repository is released under the [MIT](https://github.com/clintaire/PyGC/blob/main/LICENSE.md) license.
+The [PYGC](https://github.com/clintaire/PyGC) repository is released under the [MIT](https://github.com/clintaire/PyGC/blob/main/LICENSE) license.
