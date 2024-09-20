@@ -1,4 +1,4 @@
-# PYGC
+# PyGCA
 **PYTHON OPERATOR DETECTION & ANALYSIS**
 
 | ![Mental Calculation](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg) |
@@ -6,12 +6,12 @@
 | Mental Calculation |
 
 ## Overview
-**PyGC** is a Python library, independently developed and actively maintained to detect, analyze, and optimize operator usage in Python codebases. With a focus on efficiency and ease of use, this tool empowers developers to identify performance bottlenecks and potential vulnerabilities stemming from operator misuse.
+**PyGCA** is a Python library, independently developed and actively maintained to detect, analyze, and optimize operator usage in Python codebases. With a focus on efficiency and ease of use, this tool empowers developers to identify performance bottlenecks and potential vulnerabilities stemming from operator misuse.
 
-The library covers __all major operator categories__, providing insights into how operators interact within the code and where optimizations can improve overall performance. As an actively maintained project, __PyGC__ continually evolves to stay relevant with Python’s latest updates and to incorporate user feedback for better functionality.
+The library covers __all major operator categories__, providing insights into how operators interact within the code and where optimizations can improve overall performance. As an actively maintained project, __PyGCA__ continually evolves to stay relevant with Python’s latest updates and to incorporate user feedback for better functionality.
 
 <p align="center">
-  <strong>Important Notice:</strong> This project is not affiliated with or related to the <a href="https://pypi.org/project/pygc/">PyGC package on PyPI</a>.
+  <strong>Important Notice:</strong> This project is not affiliated with or related to the <a href="https://pypi.org/project/PyGC/">PyGC package on PyPI</a>.
 </p>
 
 ## Key Features
@@ -27,7 +27,7 @@ The library covers __all major operator categories__, providing insights into ho
 - **Customizable settings** for different project needs
 
 > **[!TIP]**
-> To better understand the __functional__ areas of each operator category and where they overlap, the following  diagram visually represents the __scope__ of PyGC:
+> To better understand the __functional__ areas of each operator category and where they overlap, the following  diagram visually represents the __scope__ of PyGCA:
 
 ```plaintext
       +----------------------------+
@@ -48,8 +48,8 @@ The library covers __all major operator categories__, providing insights into ho
 
 **1. Clone the `repository`:**
 ```bash
-   git clone https://github.com/clintaire/PyGC.git
-   cd PyGC
+   git clone https://github.com/clintaire/PyGCA.git
+   cd PyGCA
 ```
 **2. `Install` dependencies:**
 ```bash
@@ -65,7 +65,7 @@ You can analyze __any__ Python script for __operator__ usage with a simple __com
 ```bash
    python3 -m bot.operator_analysis path/to/your_script.py
 ```
-Here’s a basic Python script with various operators that __PyGC__ can analyze:
+Here’s a basic Python script with various operators that __PyGCA__ can analyze:
 
 ```python
     def analyze_example(a, b):
@@ -84,7 +84,7 @@ Here’s a basic Python script with various operators that __PyGC__ can analyze:
     return result
 ```
 
-**Run PyGC and Inspect Output / __Basically__ to inspect the code above**
+**Run PyGCA and Inspect Output / __Basically__ to inspect the code above**
 
 ```bash
    python3 -m bot.operator_analysis analyze_example.py
@@ -94,7 +94,7 @@ Here’s a basic Python script with various operators that __PyGC__ can analyze:
 ```bash
    ["Arithmetic Addition detected at line 4", "Logical AND detected at line 7", "Bitwise AND detected at line 12"]
 ```
-__The following truth table demonstrates logical operator results and their detection by PyGC:__
+__The following truth table demonstrates logical operator results and their detection by PyGCA:__
 
 |       Expression        |       Expected Result            |     Detected Issue     |
 | ----------------------- | -------------------------------- | ---------------------- |
@@ -107,7 +107,7 @@ __The following truth table demonstrates logical operator results and their dete
 
 
 > [!NOTE]
-> You can modify PyGC’s behavior to handle special cases or focus on specific operator categories. To run only the arithmetic or comparison checks, you can adjust configuration files or pass custom flags during execution
+> You can modify PyGCA’s behavior to handle special cases or focus on specific operator categories. To run only the arithmetic or comparison checks, you can adjust configuration files or pass custom flags during execution
 
 **To only check for Arithmetic Operators**
 
@@ -116,7 +116,7 @@ __The following truth table demonstrates logical operator results and their dete
 ```
 
 
-- When running PyGC on a larger codebase or a real-world project, it’s important to use modular analysis and profiling techniques to measure performance impact. Here’s how to profile the performance:
+- When running PyGCA on a larger codebase or a real-world project, it’s important to use modular analysis and profiling techniques to measure performance impact. Here’s how to profile the performance:
 
 ```python
    import time
@@ -140,11 +140,11 @@ __The following truth table demonstrates logical operator results and their dete
 
    print(f"Analysis completed in {end_time - start_time} seconds")
 ```
-Running the above :top: code will allow you to test PyGC on __large__ scripts, and the output will help measure its __efficiency__.
+Running the above :top: code will allow you to test PyGCA on __large__ scripts, and the output will help measure its __efficiency__.
 
 # Testing
 
-**To ensure everything is working, you can run _PyGC’s_ test suite using pytest. This will validate the detection algorithms against various test cases:**
+**To ensure everything is working, you can run _PyGCA’s_ test suite using pytest. This will validate the detection algorithms against various test cases:**
 
 ```bash
    PYTHONPATH=. pytest tests/
@@ -155,7 +155,7 @@ Running the above :top: code will allow you to test PyGC on __large__ scripts, a
 ```python
 ======================================== test session starts =================================
 platform linux -- Python 3.11.2, pytest-8.3.3, pluggy-1.5.0
-rootdir: /home/username/PyGC
+rootdir: /home/username/PyGCA
 collected 10 items                                                                                  
 
 tests/test_arithmetic_checker.py .                                                      [ 10%]
@@ -169,9 +169,10 @@ tests/test_operator_detection.py ....                                           
 ======================================== 10 passed in 0.21s ==================================
 ```
 
+
 ## Contributing
 
-I welcome contributions! If you'd like to contribute to PyGC, follow these steps:
+I welcome contributions! If you'd like to contribute to PyGCA, follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bugfix, replacing `my-new-feature` with a descriptive name: `git checkout -b my-feature-name`
@@ -181,15 +182,15 @@ I welcome contributions! If you'd like to contribute to PyGC, follow these steps
 
 Make sure to run the tests with `pytest` and ensure everything is working before submitting your PR.
 
-For more details, see the [Contributing Guide](https://github.com/clintaire/PyGC/blob/PyGC/CONTRIBUTING.md).
+For more details, see the [Contributing Guide](https://github.com/clintaire/PyGCA/blob/PyGCA/CONTRIBUTING.md).
 
 ## How to Follow
 
-Join the community and stay updated with the latest changes to PyGC by following the repository on GitHub:
+Join the community and stay updated with the latest changes to PyGCA by following the repository on GitHub:
 
 - Watch the repository to get notifications for updates.
 - Star the repository if you find it useful.
-- Follow [Clint Airé](https://github.com/clintaire) for updates on PyGC and other projects.
+- Follow [Clint Airé](https://github.com/clintaire) for updates on PyGCA and other projects.
 
 ## Credits
 
@@ -199,4 +200,4 @@ Join the community and stay updated with the latest changes to PyGC by following
 
 Copyright 2024-Present Clint Airé.
 
-The [PYGC](https://github.com/clintaire/PyGC) repository is released under the [MIT](https://github.com/clintaire/PyGC/blob/main/LICENSE) license.
+The [PyGCA](https://github.com/clintaire/PyGCA) repository is released under the [MIT](https://github.com/clintaire/PyGCA/blob/main/LICENSE) license.
