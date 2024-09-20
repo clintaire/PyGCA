@@ -158,13 +158,13 @@ platform linux -- Python 3.11.2, pytest-8.3.3, pluggy-1.5.0
 rootdir: /home/username/PyGC
 collected 10 items                                                                                  
 
-tests/test_arithmetic_checker.py .                                                     [ 10%]
-tests/test_bitwise_checker.py .                                                        [ 20%]
-tests/test_comparison_checker.py .                                                     [ 30%]
-tests/test_identity_checker.py .                                                       [ 40%]
-tests/test_logical_checker.py .                                                        [ 50%]
-tests/test_membership_checker.py .                                                     [ 60%]
-tests/test_operator_detection.py ....                                                  [100%]
+tests/test_arithmetic_checker.py .                                                      [ 10%]
+tests/test_bitwise_checker.py .                                                         [ 20%]
+tests/test_comparison_checker.py .                                                      [ 30%]
+tests/test_identity_checker.py .                                                        [ 40%]
+tests/test_logical_checker.py .                                                         [ 50%]
+tests/test_membership_checker.py .                                                      [ 60%]
+tests/test_operator_detection.py ....                                                   [100%]
 
 ======================================== 10 passed in 0.21s ==================================
 ```
