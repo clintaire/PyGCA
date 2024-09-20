@@ -1,8 +1,9 @@
-# PYGC v0.1 | PYTHON OPERATOR DETECTION & ANALYSIS
+# PYGC
+**PYTHON OPERATOR DETECTION & ANALYSIS**
 
-| ![Mental calculation](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg) |
+| ![Mental Calculation](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg) |
 |:--:|
-| *Image: Wikipedia* |
+| Mental Calculation |
 
 ## Overview
 **PyGC** is a Python library, independently developed and actively maintained to detect, analyze, and optimize operator usage in Python codebases. With a focus on efficiency and ease of use, this tool empowers developers to identify performance bottlenecks and potential vulnerabilities stemming from operator misuse.
@@ -173,22 +174,26 @@ tests/test_operator_detection.py ....                                           
 We welcome contributions! If you'd like to contribute to PyGC, follow these steps:
 
 1. Fork the repository.
-2. Create a new branch for your feature or bugfix: `git checkout -b my-new-feature`
+2. Create a new branch for your feature or bugfix, replacing `my-new-feature` with a descriptive name: `git checkout -b my-feature-name`
 3. Make your changes and commit them: `git commit -am 'Add new feature'`
-4. Push the branch: `git push origin my-new-feature`
+4. Push the branch: `git push origin my-feature-name`
 5. Create a new Pull Request.
 
 Make sure to run the tests with `pytest` and ensure everything is working before submitting your PR.
 
-For more details, see the [Contributing Guide](https://github.com/clintaire/PyGC/blob/main/CONTRIBUTING.md).
+For more details, see the [Contributing Guide](https://github.com/clintaire/PyGC/blob/PyGC/CONTRIBUTING.md).
 
 ## How to Follow
 
-Stay updated with the latest changes to PyGC by following the repository on GitHub:
+Join the community and stay updated with the latest changes to PyGC by following the repository on GitHub:
 
 - Watch the repository to get notifications for updates.
 - Star the repository if you find it useful.
 - Follow [Clint Airé](https://github.com/clintaire) for updates on PyGC and other projects.
+
+## Credits
+
+- Image Credit: [Wikipedia](https://en.wikipedia.org/wiki/Arithmetic)
 
 ## LICENSE
 
