@@ -171,7 +171,7 @@ tests/test_operator_detection.py ....                                       [100
 
 ## Contributing
 
-We welcome contributions! If you'd like to contribute to PyGC, follow these steps:
+I welcome contributions! If you'd like to contribute to PyGC, follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bugfix, replacing `my-new-feature` with a descriptive name: `git checkout -b my-feature-name`
@@ -197,6 +197,6 @@ Join the community and stay updated with the latest changes to PyGC by following
 
 ## LICENSE
 
-Copyright 2024-present Clint Airé.
+Copyright 2024-Present Clint Airé.
 
 The [PYGC](https://github.com/clintaire/PyGC) repository is released under the [MIT](https://github.com/clintaire/PyGC/blob/main/LICENSE.md) license.
