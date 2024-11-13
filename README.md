@@ -3,6 +3,7 @@ PyGCA
 [![Stable Version](https://img.shields.io/pypi/v/PyGCA?color=blue)](https://pypi.org/project/PyGCA/)
 [![Build Status](https://github.com/clintaire/PyGCA/actions/workflows/test.yml/badge.svg)](https://github.com/clintaire/PyGCA/actions)
 [![Downloads](https://img.shields.io/pypi/dm/PyGCA)](https://pypistats.org/packages/PyGCA)
+![PyPI - Downloads](https://img.shields.io/pypi/dt/PyGCA)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -150,7 +151,7 @@ Running the above :top: code will allow you to test PyGCA on __large__ scripts, 
    PYTHONPATH=. pytest tests/
 ```
 
-**Upon successful execution, the terminal output should ⇙ appear as below:**
+**Upon successful execution, the terminal output should pass:**
 
 <div style="text-align: center;">
   <img src="Misc/good.png" alt="CLI" style="max-width: 100%; height: auto;" />
