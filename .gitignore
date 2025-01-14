@@ -1,21 +1,22 @@
-# Ignore Python bytecode files
 __pycache__/
 *.py[cod]
-
-# Ignore virtual environment files
-.env
+*.pyo
 .venv/
-env/
 venv/
-
-# Ignore .pypirc to prevent exposing tokens
-.pypirc
-
-# Ignore distribution and build files
+env/
+*/venv/
+*/env/
+.PyInstaller/
 dist/
 build/
 *.egg-info/
-
-# Ignore IDE specific files (optional)
 .vscode/
 .idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.log
+*.sqlite3
+.coverage
+htmlcov/
