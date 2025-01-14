@@ -1,3 +1,4 @@
+import os
 from bot.operator_detection import check_operators
 
 # Assuming the bot has some functions to detect specific operator misuse, e.g.:
@@ -10,7 +11,7 @@ def analyze_repository(repo_path):
     Scans all Python files in the repository for operator misuse and outputs results locally.
     """
     results = {}
-    
+
     for root, _, files in os.walk(repo_path):
         for file in files:
             if file.endswith(".py"):
@@ -39,7 +40,7 @@ def save_results(repo_name, results, output_dir="results"):
         os.makedirs(output_dir)
 
     output_file = os.path.join(output_dir, f"{repo_name}_results.txt")
-    
+
     with open(output_file, "w") as f:
         for file_path, issues in results.items():
             f.write(f"File: {file_path}\n")

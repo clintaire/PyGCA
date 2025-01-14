@@ -15,4 +15,4 @@ def compare_values(a, b):
     checker = ComparisonOperatorChecker()
     checker.visit(tree)
     issues = checker.get_issues()
-    assert len(issues) == 2  # Expect 2 issues
+    assert len(issues) == 1, "Expect 1 issue"

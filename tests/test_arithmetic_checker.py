@@ -22,11 +22,12 @@ def calculate():
     checker_old = ArithmeticOperatorChecker()
     checker_old.visit(tree_old)
     issues_old = checker_old.get_issues()
-    assert len(issues_old) == 0
+    assert len(issues_old) == 0, "Old logic code should have no issues"
 
     tree_new = ast.parse(new_logic_code)
     set_parents(tree_new)
     checker_new = ArithmeticOperatorChecker()
     checker_new.visit(tree_new)
     issues_new = checker_new.get_issues()
-    assert len(issues_new) == 1  # Division by zero
+    assert len(issues_new) == 1, "New logic code should have one issue (division by zero)"
+    assert issues_new[0] == "Division by zero at line 6"

@@ -30,7 +30,10 @@ setup(
         "urllib3==2.2.3",
         "wrapt==1.16.0",
     ],
-    description="A tool for detecting and analyzing Python operators like arithmetic, bitwise, comparison, and more.",
+    description=(
+        "A tool for detecting and analyzing Python operators like arithmetic, "
+        "bitwise, comparison, and more."
+    ),
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Clintaire",

@@ -10,14 +10,19 @@ Thank you for considering contributing to this project! Please follow the steps 
 
 2. **Clone the Forked Repository**
    - Clone the repository to your local machine using:
-     ```bash
-     git clone https://github.com/clintaire/PyGC.git
+
+     ```shell
+      git clone https://github.com/clintaire/PyGC.git
+
      ```
+
    - Replace `YOUR-USERNAME` with your GitHub username.
 
 3. **Create a New Branch**
    - Before making any changes, create a new branch to work on:
-     ```bash
+
+     ```shell
+
      git checkout -b feature/your-feature-name
      ```
 
@@ -30,17 +35,21 @@ Thank you for considering contributing to this project! Please follow the steps 
 
 5. **Commit Your Changes**
    - Commit your changes with a descriptive commit message:
-     ```bash
+
+     ```shell
+
      git add .
      git commit -m "Add a detailed commit message explaining the feature or fix"
+
      ```
 
 6. **Push to Your Fork**
    - Push your changes to your GitHub fork:
-     ```bash
+
+      ```bash
+
      git push origin feature/your-feature-name
      ```
-
 
 7. **Create a Pull Request**
    - Navigate to the original repository on GitHub.
@@ -53,6 +62,7 @@ Thank you for considering contributing to this project! Please follow the steps 
 ## Code of Conduct
 
 Please review and follow our Code of Conduct before contributing:
+
 - Be respectful of others.
 - Provide constructive feedback.
 - Ensure that discussions are productive.
@@ -60,12 +70,14 @@ Please review and follow our Code of Conduct before contributing:
 ## Testing
 
 Before submitting your contribution, please ensure that:
+
 - All tests are passing.
 - New tests have been added for any new functionality.
 
 ## Style Guide
 
 Adhere to the following guidelines:
+
 - Code should be properly commented and documented.
 - Follow the project’s naming conventions and structure.
 

@@ -1,14 +1,14 @@
-name: PyGC Operator Checker CI
+name: Python Code Quality and Tests CI
 
 on:
   push:
     branches:
       - main
-      - PyGC
+      - pygc
   pull_request:
     branches:
       - main
-      - PyGC
+      - pygc
 
 jobs:
   test:
@@ -32,6 +32,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=." >> $GITHUB_ENV
+
       - name: Run tests
-        run: |
-          PYTHONPATH=. pytest tests/
+        run: pytest tests/
