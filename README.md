@@ -24,7 +24,7 @@
 - **Detailed reporting** on operator misuse
 - **Customizable settings** for different project needs
 
-> **[!TIP]**
+> [!TIP]
 > To better understand the __functional__ areas of each operator category and where they overlap, the following  diagram visually represents the __scope__ of PyGCA:
 
 **Go to Installation**
