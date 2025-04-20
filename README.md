@@ -1,5 +1,4 @@
 
-
 [![Stable Version](https://img.shields.io/pypi/v/PyGCA?color=blue)](https://pypi.org/project/PyGCA/)
 [![Build Status](https://github.com/clintaire/PyGCA/actions/workflows/test.yml/badge.svg)](https://github.com/clintaire/PyGCA/actions)
 [![Downloads](https://img.shields.io/pypi/dm/PyGCA)](https://pypistats.org/packages/PyGCA)
@@ -13,6 +12,7 @@
 ![~~Mental Calculation~~](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg)
 
 **Key Features**
+
 - **Multi-operator detection**:
   - Arithmetic (` + `, ` - `, ` * `, ` / `, etc)
   - Bitwise (` & `, ` | `, ` ^ `, etc)
@@ -25,10 +25,12 @@
 - **Customizable settings** for different project needs
 
 > [!TIP]
-> To better understand the __functional__ areas of each operator category and where they overlap, the following  diagram visually represents the __scope__ of PyGCA:
+> To better understand the **functional** areas of each operator category and where they overlap, the following  diagram visually represents the **scope** of PyGCA:
 
 **Go to Installation**
+
 1. Clone The Repository:
+
 ```
 git clone https://github.com/clintaire/PyGCA.git
 ```
@@ -38,11 +40,12 @@ cd PyGCA
 ```
 
 2. Install Dependencies:
+
 ```
 pip install -r requirements.txt
 ```
 
-**Usage**
+## Usage
 
 Run the Operator Analysis
 You can analyze any Python script for operator usage with a simple command :
@@ -58,7 +61,7 @@ python3 -m bot.operator_analysis path/to/your_script.py
     # Arithmetic operators
     sum_result = a + b
     diff = a - b
-    
+
     # Logical operators
     if a and b:
         return True
@@ -70,8 +73,8 @@ python3 -m bot.operator_analysis path/to/your_script.py
     return result
 ```
 
-
 Run PyGCA and Inspect Output / Basically to inspect the code above
+
 ```
 python3 -m bot.operator_analysis analyze_example.py
 ```
@@ -86,7 +89,6 @@ The following truth table demonstrates logical operator results and their detect
 | not True            | False           | No issue       |
 | a and not b         | Depends on vars | No issue       |
 | a & b (bitwise AND) | Depends on bits | Alert!         |
-
 
 > [!NOTE]
 > You can modify PyGCA’s behavior to handle special cases or focus on specific operator categories. To run only the arithmetic or comparison checks, you can adjust configuration files or pass custom flags during execution
@@ -121,22 +123,22 @@ python3 -m bot.operator_analysis --check-arithmetic path/to/script.py
 
    print(f"Analysis completed in {end_time - start_time} seconds")
 ```
-Running the above :top: code will allow you to test PyGCA on __large__ scripts, and the output will help measure its __efficiency__.
+
+Running the above :top: code will allow you to test PyGCA on **large** scripts, and the output will help measure its **efficiency**.
 
 # Testing
 
-## To ensure everything is working, you can run _PyGCA’s_ test suite using pytest. This will validate the detection algorithms against various test cases:
+## To ensure everything is working, you can run _PyGCA’s_ test suite using pytest. This will validate the detection algorithms against various test cases
 
 ```bash
    PYTHONPATH=. pytest tests/
 ```
 
-## Upon successful execution, the terminal output should pass:
+## Upon successful execution, the terminal output should pass
 
 <div style="text-align: center;">
   <img src="Misc/good.png" alt="CLI" style="max-width: 100%; height: auto;" />
 </div>
-
 
 ## Contributing
 
