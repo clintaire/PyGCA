@@ -1,5 +1,6 @@
 import ast
 
+
 class LogicalOperatorChecker(ast.NodeVisitor):
     def __init__(self):
         self.issues = []

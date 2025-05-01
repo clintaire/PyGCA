@@ -2,6 +2,7 @@ import ast
 from bot.identity_membership.identity_checker import IdentityOperatorChecker
 from bot.utils import set_parents
 
+
 def test_identity_operator_detection():
     source_code = """
 def identity_check():

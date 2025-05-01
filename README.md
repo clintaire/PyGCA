@@ -1,173 +1,218 @@
+<p align="center">
+  <h2 align="center">PYGCA</h2>
+  <p align="center">A static analysis tool that detects and analyzes operator usage patterns in Python codebases<p>
+  <p align="center">
+    <a href="https://github.com/clintaire/PyGCA/actions">
+        <img src="https://img.shields.io/github/actions/workflow/status/clintaire/PyGCA/test.yml?branch=main&style=flat&colorA=0a0a0a&colorB=44CC11" alt="Build Status" />
+    </a>
+    <a href="https://pypistats.org/packages/PyGCA">
+        <img src="https://img.shields.io/pypi/dm/PyGCA?style=flat&colorA=0a0a0a&colorB=FF8811" alt="Downloads" />
+    </a>
+    <a href="https://codecov.io/gh/clintaire/PyGCA">
+        <img src="https://img.shields.io/codecov/c/github/clintaire/PyGCA?style=flat&colorA=0a0a0a&colorB=1285FD" alt="Coverage" />
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+        <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&colorA=0a0a0a" alt="License" />
+    </a>
+    <a href="https://github.com/psf/black">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg?style=flat&colorA=0a0a0a" alt="Code Style" />
+    </a>
+    <a href="https://pypi.org/project/PyGCA/">
+        <img src="https://img.shields.io/pypi/pyversions/PyGCA?style=flat&colorA=0a0a0a" alt="Python Versions" />
+    </a>
+  </p>
+</p>
 
-[![Stable Version](https://img.shields.io/pypi/v/PyGCA?color=blue)](https://pypi.org/project/PyGCA/)
-[![Build Status](https://github.com/clintaire/PyGCA/actions/workflows/test.yml/badge.svg)](https://github.com/clintaire/PyGCA/actions)
-[![Downloads](https://img.shields.io/pypi/dm/PyGCA)](https://pypistats.org/packages/PyGCA)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<br>
 
-## PyGCA
+## Table of Contents
 
-**PyGCA** is a Python library designed to detect and analyze operator usage in Python codebases. It supports a variety of operators, including arithmetic, bitwise, comparison, identity, logical, and membership operators. The library offers actionable suggestions for performance improvements, detailed reports on operator misuse, and customizable settings to fit different project needs.
+- [Table of Contents](#table-of-contents)
+- [Key Features](#key-features)
+- [Installation](#installation)
+  - [From PyPI](#from-pypi)
+  - [From Source](#from-source)
+- [Quick Start](#quick-start)
+  - [Basic Usage](#basic-usage)
+  - [Example Analysis](#example-analysis)
+- [Advanced Usage](#advanced-usage)
+  - [Targeted Analysis](#targeted-analysis)
+  - [Configuration](#configuration)
+  - [Performance Profiling](#performance-profiling)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Documentation](#documentation)
+- [Comparison with Similar Tools](#comparison-with-similar-tools)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+- [License](#license)
+- [Real-world Use Cases](#real-world-use-cases)
+- [Roadmap](#roadmap)
 
-![~~Mental Calculation~~](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mental_calculation_at_primary_school.jpg/320px-Mental_calculation_at_primary_school.jpg)
+## Key Features
 
-**Key Features**
+- 🎯 **Multi-operator detection** with specialized checkers
+- 📝 **Actionable suggestions** with line-number references
+- ⚙️ **Customizable rules** via `.pygcconfig` files
+- 📊 **Performance profiling** for large codebases
+- 📄 **Detailed reports** in multiple formats
 
-- **Multi-operator detection**:
-  - Arithmetic (` + `, ` - `, ` * `, ` / `, etc)
-  - Bitwise (` & `, ` | `, ` ^ `, etc)
-  - Comparison (` == `, ` != `, ` > `, etc)
-  - Identity (` is `, ` is not `)
-  - Logical (` and `, ` or `, ` not `)
-  - Membership (` in `, ` not in `)
-- **Actionable suggestions** for performance improvements
-- **Detailed reporting** on operator misuse
-- **Customizable settings** for different project needs
+## Installation
 
-> [!TIP]
-> To better understand the **functional** areas of each operator category and where they overlap, the following  diagram visually represents the **scope** of PyGCA:
-
-**Go to Installation**
-
-1. Clone The Repository:
-
-```
-git clone https://github.com/clintaire/PyGCA.git
-```
-
-```
-cd PyGCA
-```
-
-2. Install Dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-## Usage
-
-Run the Operator Analysis
-You can analyze any Python script for operator usage with a simple command :
-
-```
-python3 -m bot.operator_analysis path/to/your_script.py
-```
-
-**Here’s a basic Python script with various operators that PyGCA can analyze:**
-
-```python
-    def analyze_example(a, b):
-    # Arithmetic operators
-    sum_result = a + b
-    diff = a - b
-
-    # Logical operators
-    if a and b:
-        return True
-    elif a or b:
-        return False
-
-    # Bitwise operators
-    result = a & b
-    return result
-```
-
-Run PyGCA and Inspect Output / Basically to inspect the code above
-
-```
-python3 -m bot.operator_analysis analyze_example.py
-```
-
-The following truth table demonstrates logical operator results and their detection by PyGCA:
-
-| Expression          | Expected Result | Detected Issue |
-| ------------------- | --------------- | -------------- |
-| True and False      | False           | No issue       |
-| False or True       | True            | No issue       |
-| True and False      | Data            | No issue       |
-| not True            | False           | No issue       |
-| a and not b         | Depends on vars | No issue       |
-| a & b (bitwise AND) | Depends on bits | Alert!         |
-
-> [!NOTE]
-> You can modify PyGCA’s behavior to handle special cases or focus on specific operator categories. To run only the arithmetic or comparison checks, you can adjust configuration files or pass custom flags during execution
-
-### To only check for Arithmetic Operators
-
-```
-python3 -m bot.operator_analysis --check-arithmetic path/to/script.py
-```
-
-- When running PyGCA on a larger codebase or a real-world project, it’s important to use modular analysis and profiling techniques to measure performance impact. Here’s how to profile the performance:
-
-```python
-   import time
-   from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
-   from bot.utils import set_parents
-   import ast
-
-   # Load large source code
-   source_code = """
-   def large_function():
-    x = 1
-   """ * 10000  # Replicate a small function 10,000 times
-
-   # Time the performance
-   start_time = time.time()
-   tree = ast.parse(source_code)
-   set_parents(tree)
-   checker = ArithmeticOperatorChecker()
-   checker.visit(tree)
-   end_time = time.time()
-
-   print(f"Analysis completed in {end_time - start_time} seconds")
-```
-
-Running the above :top: code will allow you to test PyGCA on **large** scripts, and the output will help measure its **efficiency**.
-
-# Testing
-
-## To ensure everything is working, you can run _PyGCA’s_ test suite using pytest. This will validate the detection algorithms against various test cases
+### From PyPI
 
 ```bash
-   PYTHONPATH=. pytest tests/
+pip install pygca
 ```
 
-## Upon successful execution, the terminal output should pass
+### From Source
 
-<div style="text-align: center;">
-  <img src="Misc/good.png" alt="CLI" style="max-width: 100%; height: auto;" />
-</div>
+```bash
+git clone https://github.com/clintaire/PyGCA.git
+cd PyGCA
+pip install -e .
+```
+
+## Quick Start
+
+### Basic Usage
+
+Analyze a Python file:
+
+```bash
+python -m pygca analyze path/to/your_script.py
+```
+
+Sample output:
+
+```
+Found 3 potential issues in path/to/your_script.py:
+1. [Line 5] Division by zero risk in 'a / 0'
+2. [Line 8] Bitwise AND in conditional context
+3. [Line 12] None comparison using '=='
+```
+
+### Example Analysis
+
+Consider this sample code:
+
+```python
+def example(a, b):
+    # Arithmetic operation
+    result = a / 0
+
+    # Bitwise in conditional
+    if a & b:
+        return True
+
+    # Identity check
+    return result is None
+```
+
+PyGCA would detect:
+
+1. Potential division by zero
+2. Bitwise operator in conditional context
+3. Safe identity check (no issue)
+
+## Advanced Usage
+
+### Targeted Analysis
+
+Check specific operator categories:
+
+```bash
+python -m pygca analyze --operators arithmetic,bitwise example.py
+```
+
+### Configuration
+
+Create `.pygcconfig` in your project root:
+
+```ini
+[operators]
+exclude_files = tests/, legacy/
+exclude_categories = identity
+
+[messages]
+division_by_zero = "Custom warning: Possible division by zero at {line}"
+```
+
+### Performance Profiling
+
+Analyze large codebases with resource monitoring:
+
+```bash
+python -m pygca analyze --profile large_project/
+```
+
+Sample profile output:
+
+```
+Processed 152 files (2.1MB) in 4.8s
+Memory usage: 48.2MB peak
+CPU utilization: 32%
+```
+
+## Testing
+
+Run the test suite:
+
+```bash
+pytest tests/ --cov=pygca --cov-report=term-missing
+```
 
 ## Contributing
 
-I welcome contributions! If you'd like to contribute to PyGCA, follow these steps:
+We welcome contributions! Please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix, replacing `my-new-feature` with a descriptive name: `git checkout -b my-feature-name`
-3. Make your changes and commit them: `git commit -am 'Add new feature'`
-4. Push the branch: `git push origin my-feature-name`
-5. Create a new Pull Request.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
 
-Make sure to run the tests with `pytest` and ensure everything is working before submitting your PR.
+See our [Contribution Guidelines](CONTRIBUTING.md) for details.
 
-For more details, see the [Contributing Guide](https://github.com/clintaire/PyGCA/blob/PyGCA/CONTRIBUTING.md).
+## Documentation
 
-## How to Follow
+For full documentation and API reference, visit:
 
-Join the community and stay updated with the latest changes to PyGCA by following the repository on GitHub:
+- [API Reference](docs/api_reference.md)
+- [Usage Examples](docs/examples.md)
+- [Configuration Guide](docs/configuration.md)
 
-- Watch the repository to get notifications for updates.
-- Star the repository if you find it useful.
-- Follow [Clint Airé](https://github.com/clintaire) for updates on PyGCA and other projects.
+## Comparison with Similar Tools
 
-## Credits
+| Feature       | PyGCA | Pylint | Flake8 |
+| ------------- | ----- | ------ | ------ |
+| Python 3.12+  | ✅     | ✅      | ✅      |
+| Custom Rules  | High  | Medium | Low    |
+| CLI Interface | ✅     | ✅      | ✅      |
+| Plugin System | ❌     | ✅      | ✅      |
 
-- Image Credit: [Wikipedia](https://en.wikipedia.org/wiki/Arithmetic)
+## Troubleshooting
 
-## LICENSE
+### Common Issues
 
-Copyright 2024-Present Clint Airé.
+1. **ImportError when running PyGCA**
+   - Make sure you've installed all dependencies with `pip install -r requirements.txt`
 
-The [PyGCA](https://github.com/clintaire/PyGCA) repository is released under the [MIT](https://github.com/clintaire/PyGCA/blob/main/LICENSE) license.
+2. **False positives in operator detection**
+   - Configure exclusions in your `.pygcconfig` file
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Real-world Use Cases
+
+- **CI/CD Integration**: Automatically check PRs for operator issues
+- **Large Codebase Migration**: Identify potential bugs when upgrading Python versions
+- **Teaching Tool**: Help new developers understand operator nuances
+
+## Roadmap
+
+- [ ] Support for Python 3.12 match/case statements
+- [ ] IDE integrations (VS Code, PyCharm)
+- [ ] Web interface for online analysis

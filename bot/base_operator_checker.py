@@ -1,4 +1,3 @@
-
 class BaseOperatorChecker:
     def __init__(self):
         self.issues = []

@@ -2,6 +2,7 @@ import ast
 from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
 from bot.utils import set_parents
 
+
 def test_bitwise_operator_detection():
     old_logic_code = """
 def bitwise_operation():

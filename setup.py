@@ -1,5 +1,6 @@
-from setuptools import setup, find_packages
 import pathlib
+
+from setuptools import find_packages, setup
 
 HERE = pathlib.Path(__file__).parent
 long_description = (HERE / "README.md").read_text(encoding="utf-8")
@@ -15,11 +16,11 @@ setup(
         "certifi==2024.8.30",
         "cffi==1.17.1",
         "charset-normalizer==3.3.2",
-        "cryptography==43.0.1",
+        "cryptography>=44.0.1",
         "Deprecated==1.2.14",
         "idna==3.10",
         "iniconfig==2.0.0",
-        "Jinja2==3.1.4",
+        "Jinja2>=3.1.6",
         "MarkupSafe==2.1.5",
         "packaging==24.1",
         "pluggy==1.5.0",

@@ -4,7 +4,9 @@ from bot.operator_detection import check_operators
 # Assuming the bot has some functions to detect specific operator misuse, e.g.:
 from bot.arithmetic.arithmetic_checker import check_arithmetic_operators
 from bot.comparison.comparison_checker import check_comparison_operators
+
 # Add other necessary operator checks here
+
 
 def analyze_repository(repo_path):
     """
@@ -16,7 +18,7 @@ def analyze_repository(repo_path):
         for file in files:
             if file.endswith(".py"):
                 file_path = os.path.join(root, file)
-                with open(file_path, 'r') as f:
+                with open(file_path, "r") as f:
                     code = f.read()
 
                 # Assuming each checker returns issues found in the format: {"line_number": "issue_description"}
@@ -27,10 +29,11 @@ def analyze_repository(repo_path):
                 if arithmetic_issues or comparison_issues:
                     results[file_path] = {
                         "arithmetic_issues": arithmetic_issues,
-                        "comparison_issues": comparison_issues
+                        "comparison_issues": comparison_issues,
                     }
 
     return results
+
 
 def save_results(repo_name, results, output_dir="results"):
     """

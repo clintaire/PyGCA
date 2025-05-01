@@ -1,5 +1,6 @@
 import ast
 
+
 class IdentityOperatorChecker(ast.NodeVisitor):
     def __init__(self):
         self.issues = []
@@ -9,7 +10,9 @@ class IdentityOperatorChecker(ast.NodeVisitor):
             if isinstance(op, ast.Is):
                 self.issues.append(f"Potential misuse of 'is' at line {node.lineno}")
             elif isinstance(op, ast.IsNot):
-                self.issues.append(f"Potential misuse of 'is not' at line {node.lineno}")
+                self.issues.append(
+                    f"Potential misuse of 'is not' at line {node.lineno}"
+                )
         self.generic_visit(node)
 
     def get_issues(self):

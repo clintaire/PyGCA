@@ -2,6 +2,7 @@ import ast
 from bot.identity_membership.membership_checker import MembershipOperatorChecker
 from bot.utils import set_parents
 
+
 def test_membership_operator_detection():
     source_code = """
 def check_membership(a):

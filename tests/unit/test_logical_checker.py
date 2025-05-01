@@ -2,6 +2,7 @@ import ast
 from bot.logical.logical_checker import LogicalOperatorChecker
 from bot.utils import set_parents
 
+
 def test_logical_operator_detection():
     source_code = """
 def logical_operations():

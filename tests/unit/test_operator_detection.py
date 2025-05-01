@@ -1,4 +1,8 @@
 import ast
+import cProfile
+import pstats
+import time
+
 from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
 from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
 from bot.comparison.comparison_checker import ComparisonOperatorChecker
@@ -6,7 +10,6 @@ from bot.identity_membership.identity_checker import IdentityOperatorChecker
 from bot.identity_membership.membership_checker import MembershipOperatorChecker
 from bot.logical.logical_checker import LogicalOperatorChecker
 from bot.utils import set_parents
-import time
 
 
 def test_combined_operator_detection():
@@ -67,12 +70,19 @@ def large_function():
         * 10000
     )  # Replicate a small function 10,000 times
 
+    profiler = cProfile.Profile()
+    profiler.enable()
+
     start_time = time.time()
     tree = ast.parse(source_code)
     set_parents(tree)
     checker = ArithmeticOperatorChecker()
     checker.visit(tree)
     end_time = time.time()
+
+    profiler.disable()
+    stats = pstats.Stats(profiler)
+    stats.sort_stats("cumulative").print_stats(10)
 
     execution_time = end_time - start_time
     assert execution_time < 1  # Ensure detection completes in under 1 second

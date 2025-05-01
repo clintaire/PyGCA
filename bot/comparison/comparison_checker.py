@@ -1,5 +1,6 @@
 import ast
 
+
 class ComparisonOperatorChecker(ast.NodeVisitor):
     def __init__(self):
         self.issues = []
@@ -13,6 +14,7 @@ class ComparisonOperatorChecker(ast.NodeVisitor):
 
     def get_issues(self):
         return self.issues
+
 
 def check_comparison_operators(code):
     checker = ComparisonOperatorChecker()

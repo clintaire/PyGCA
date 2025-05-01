@@ -4,5 +4,6 @@ def calculate():
     c = a = 15
     d = b - 5
 
+
 def compare_values(x, y):
-    return x = y  # Incorrect, should be '=='
+    return x == y
