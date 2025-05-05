@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 class ArithmeticOperatorChecker(ast.NodeVisitor):
     def __init__(self) -> None:
         self.issues: List[str] = []
-        self.visited_nodes = set()
+        self.visited_nodes: set[ast.AST] = set()
 
     def visit_BinOp(self, node: ast.BinOp) -> None:
         if id(node) in self.visited_nodes:

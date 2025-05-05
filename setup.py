@@ -23,6 +23,7 @@ setup(
         "Jinja2>=3.1.6",
         "MarkupSafe==2.1.5",
         "packaging==24.1",
+        "pipdeptree==2.23.4",
         "pluggy==1.5.0",
         "pycparser==2.22",
         "PyJWT==2.9.0",
@@ -31,6 +32,12 @@ setup(
         "urllib3==2.2.3",
         "wrapt==1.16.0",
     ],
+    extras_require={
+        "dev": [
+            "pylint",
+            "mypy",
+        ]
+    },
     description=(
         "A tool for detecting and analyzing Python operators like arithmetic, "
         "bitwise, comparison, and more."

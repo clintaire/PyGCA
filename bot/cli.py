@@ -6,7 +6,7 @@ import argparse
 import ast
 import os
 import sys
-from typing import List
+from typing import List, Optional
 
 from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
 from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
@@ -61,6 +61,10 @@ def analyze_file(file_path: str, checkers: List[str] = None) -> dict:
     return results
 
 
+def example_function(checkers: Optional[list[str]] = None):
+    pass
+
+
 def main():
     """Main CLI function."""
     parser = argparse.ArgumentParser(description="PyGCA - Python General Code Analyzer")
@@ -97,7 +101,7 @@ def main():
                             results = analyze_file(file_path, args.checkers)
                             if results:
                                 all_results[file_path] = results
-                        except Exception as e:
+                        except SpecificException:  # Replace with a specific exception
                             print(f"Error analyzing {file_path}: {e}")
         else:
             # If path is a file, analyze it directly
@@ -105,7 +109,7 @@ def main():
                 results = analyze_file(path, args.checkers)
                 if results:
                     all_results[path] = results
-            except Exception as e:
+            except SpecificException:  # Replace with a specific exception
                 print(f"Error analyzing {path}: {e}")
 
     # Output results
