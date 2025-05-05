@@ -13,7 +13,7 @@ setup(
         "PyGithub==2.4.0",
         "pytest==8.3.3",
         "requests==2.32.3",
-        "certifi==2024.8.30",
+        "certifi==2025.4.26",
         "cffi==1.17.1",
         "charset-normalizer==3.3.2",
         "cryptography>=44.0.1",
