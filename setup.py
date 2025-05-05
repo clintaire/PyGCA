@@ -11,7 +11,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "PyGithub==2.4.0",
-        "pytest==8.3.3",
+        "pytest==8.3.5",
         "requests==2.32.3",
         "certifi==2024.8.30",
         "cffi==1.17.1",
