@@ -19,7 +19,7 @@ setup(
         "cryptography>=44.0.1",
         "Deprecated==1.2.14",
         "idna==3.10",
-        "iniconfig==2.0.0",
+        "iniconfig==2.1.0",
         "Jinja2>=3.1.6",
         "MarkupSafe==2.1.5",
         "packaging==24.1",
