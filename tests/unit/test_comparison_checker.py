@@ -1,4 +1,5 @@
 import ast
+
 from bot.comparison.comparison_checker import ComparisonOperatorChecker
 from bot.utils import set_parents
 

@@ -1,4 +1,5 @@
 import ast
+
 from bot.identity_membership.membership_checker import MembershipOperatorChecker
 from bot.utils import set_parents
 

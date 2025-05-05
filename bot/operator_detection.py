@@ -1,9 +1,9 @@
 import os
-from bot.operator_detection import check_operators
 
 # Assuming the bot has some functions to detect specific operator misuse, e.g.:
 from bot.arithmetic.arithmetic_checker import check_arithmetic_operators
 from bot.comparison.comparison_checker import check_comparison_operators
+from bot.operator_detection import check_operators
 
 # Add other necessary operator checks here
 

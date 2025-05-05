@@ -1,4 +1,5 @@
 import ast
+
 from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
 from bot.utils import set_parents
 
