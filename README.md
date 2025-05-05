@@ -25,8 +25,13 @@
 
 <br>
 
+## Motivation
+
+PyGCA was created to help developers contribute to open-source projects more efficiently by identifying minor code issues (like typos and naming convention inconsistencies) without having to manually review millions of lines of code. [Read more about our motivation and philosophy](docs/motivation.md).
+
 ## Table of Contents
 
+- [Motivation](#motivation)
 - [Table of Contents](#table-of-contents)
 - [Key Features](#key-features)
 - [Installation](#installation)
