@@ -22,7 +22,7 @@ setup(
         "iniconfig==2.0.0",
         "Jinja2>=3.1.6",
         "MarkupSafe==2.1.5",
-        "packaging==24.1",
+        "packaging==25.0",
         "pipdeptree==2.23.4",
         "pluggy==1.5.0",
         "pycparser==2.22",
