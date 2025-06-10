@@ -12,7 +12,7 @@ setup(
     install_requires=[
         "PyGithub==2.4.0",
         "pytest==8.3.3",
-        "requests==2.32.3",
+        "requests==2.32.4",
         "certifi==2024.8.30",
         "cffi==1.17.1",
         "charset-normalizer==3.3.2",
