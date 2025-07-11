@@ -9,17 +9,10 @@ class MembershipOperatorChecker(ast.NodeVisitor):
         for op in node.ops:
             if isinstance(op, (ast.In, ast.NotIn)):
                 if isinstance(node.left, ast.Constant):
+                    op_name = "in" if isinstance(op, ast.In) else "not in"
                     self.issues.append(
-                        f"Potential misuse of '{op}' at line {node.lineno}"
+                        f"Potential misuse of '{op_name}' at line {node.lineno}"
                     )
-        self.generic_visit(node)
-
-    def visit_BinOp(self, node):
-        if isinstance(node.op, ast.In):
-            if isinstance(node.left, ast.Constant):
-                self.issues.append(
-                    f"Potential misuse of 'in' operator at line {node.lineno}"
-                )
         self.generic_visit(node)
 
     def get_issues(self):

@@ -20,3 +20,4 @@ Thumbs.db
 *.sqlite3
 .coverage
 htmlcov/
+results/

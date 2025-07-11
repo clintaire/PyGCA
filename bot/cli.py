@@ -23,20 +23,25 @@ from bot.utils import set_parents
 
 class AnalysisError(Exception):
     """Base exception for analysis errors."""
+
     pass
 
 
 class ParseError(AnalysisError):
     """Exception raised when parsing a Python file fails."""
+
     pass
 
 
 class CheckerError(AnalysisError):
     """Exception raised when a checker encounters an error."""
+
     pass
 
 
-def analyze_file(file_path: str, checkers: List[str] = None) -> Dict[str, List[str]]:
+def analyze_file(
+    file_path: str, checkers: Optional[List[str]] = None
+) -> Dict[str, List[str]]:
     """
     Analyze a Python file for operator issues.
 
@@ -88,7 +93,7 @@ def analyze_file(file_path: str, checkers: List[str] = None) -> Dict[str, List[s
         checker = all_checkers[checker_name]
         try:
             checker.visit(tree)
-            issues = checker.get_issues()
+            issues = checker.get_issues()  # type: ignore
             if issues:
                 results[checker_name] = issues
         except Exception as err:
