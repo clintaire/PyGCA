@@ -1,6 +1,5 @@
 """Module for detecting operator patterns in Python code."""
 
-import ast
 import os
 import re
 from pathlib import Path

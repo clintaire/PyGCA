@@ -1,5 +1,5 @@
-import os
 import pytest
+
 from bot.operator_detection import analyze_repository, save_results
 
 
