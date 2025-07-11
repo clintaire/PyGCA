@@ -1,43 +1,55 @@
+"""Module for detecting operator patterns in Python code."""
+
 import ast
 import os
 import re
 from pathlib import Path
 
-# Assuming the bot has some functions to detect specific operator misuse, e.g.:
 from bot.arithmetic.arithmetic_checker import check_arithmetic_operators
 from bot.comparison.comparison_checker import check_comparison_operators
-
-# Remove this line to fix the circular import
-# from bot.operator_detection import check_operators
-
-
-# Use check_operators directly if it's defined below in the same file
-def check_operators(tree):
-    """
-    Example function to check operators in an AST tree.
-    """
-    # Implementation here...
-    pass
-
-
-# Add other necessary operator checks here
 
 
 def analyze_repository(repo_path):
     """
     Analyze a repository for operator issues.
+
+    Args:
+        repo_path: Path to the repository to analyze
+
+    Returns:
+        Dictionary mapping file paths to their analysis results
     """
     results = {}
     for root, _, files in os.walk(repo_path):
         for file in files:
             if file.endswith(".py"):
                 file_path = os.path.join(root, file)
-                with open(file_path, "r", encoding="utf-8") as f:
-                    code = f.read()
-                tree = ast.parse(code)
-                arithmetic_issues = check_operators(tree)  # Example usage
-                # Add issues to results
-                results[file_path] = {"arithmetic_issues": arithmetic_issues}
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        code = f.read()
+
+                    # Run different checkers
+                    arithmetic_issues = check_arithmetic_operators(code)
+                    comparison_issues = check_comparison_operators(code)
+
+                    # Store results
+                    file_results = {}
+                    if arithmetic_issues:
+                        file_results["arithmetic_issues"] = arithmetic_issues
+                    if comparison_issues:
+                        file_results["comparison_issues"] = comparison_issues
+
+                    # Always add arithmetic_issues and comparison_issues keys for test compatibility
+                    if "arithmetic_issues" not in file_results:
+                        file_results["arithmetic_issues"] = []
+                    if "comparison_issues" not in file_results:
+                        file_results["comparison_issues"] = []
+
+                    results[file_path] = file_results
+                except (IOError, SyntaxError) as e:
+                    # Skip files that can't be read or parsed
+                    print(f"Warning: Could not analyze {file_path}: {e}")
+                    continue
     return results
 
 
@@ -78,16 +90,19 @@ def save_results(repo_name, results, output_dir="results"):
     with open(output_file, "w", encoding="utf-8") as f:
         for file_path, issues in results.items():
             f.write(f"File: {file_path}\n")
-            if issues.get("arithmetic_issues"):
+
+            # Handle arithmetic issues
+            arithmetic_issues = issues.get("arithmetic_issues", [])
+            if arithmetic_issues:
                 f.write("Arithmetic issues:\n")
-                for line, issue in issues["arithmetic_issues"].items():
-                    f.write(f"  Line {line}: {issue}\n")
-            if issues.get("comparison_issues"):
+                for issue in arithmetic_issues:
+                    f.write(f"  {issue}\n")
+
+            # Handle comparison issues
+            comparison_issues = issues.get("comparison_issues", [])
+            if comparison_issues:
                 f.write("Comparison issues:\n")
-                for line, issue in issues["comparison_issues"].items():
-                    f.write(f"  Line {line}: {issue}\n")
+                for issue in comparison_issues:
+                    f.write(f"  {issue}\n")
             f.write("\n")
     print(f"Results saved to {output_file}")
-
-
-save_results("test_repo", {"file.py": {}}, output_dir="results")

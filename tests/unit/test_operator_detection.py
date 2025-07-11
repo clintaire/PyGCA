@@ -2,6 +2,7 @@ import os
 import pytest
 from bot.operator_detection import analyze_repository, save_results
 
+
 @pytest.fixture
 def mock_repo(tmp_path):
     """
@@ -12,7 +13,7 @@ def mock_repo(tmp_path):
 
     # Create mock Python files
     file1 = repo_path / "file1.py"
-    file1.write_text("a + b\nc == d\n")
+    file1.write_text("a / 0\nc == d\n")
 
     file2 = repo_path / "file2.py"
     file2.write_text("x - y\nz != w\n")
