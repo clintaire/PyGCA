@@ -10,7 +10,7 @@ def test_combined_checkers():
 def test_function():
     a = 5
     b = a + 10
-    if a == b:
+    if a == None:
         return True
     """
     tree = ast.parse(source_code)

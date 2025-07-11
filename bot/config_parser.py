@@ -29,9 +29,3 @@ class ConfigLoader:
 
     def get_custom_message(self, operator):
         return self.config.get(f"{operator}", "custom_message", fallback=None)
-
-
-def example_function(value):
-    if value:
-        return True
-    return False

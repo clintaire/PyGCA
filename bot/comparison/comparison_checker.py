@@ -6,10 +6,24 @@ class ComparisonOperatorChecker(ast.NodeVisitor):
         self.issues = []
 
     def visit_Compare(self, node):
-        # Example logic for comparison misuse detection
-        if isinstance(node.ops[0], ast.Eq):
-            # Add your logic here to check for misuse of '=='
-            self.issues.append(f"Potential misuse of '==' at line {node.lineno}")
+        # Check for comparison with None using == instead of is
+        for i, op in enumerate(node.ops):
+            if isinstance(op, ast.Eq):
+                # Check if comparing with None
+                if i < len(node.comparators):
+                    comparator = node.comparators[i]
+                    if (
+                        isinstance(comparator, ast.Constant)
+                        and comparator.value is None
+                    ):
+                        self.issues.append(
+                            f"Use 'is' instead of '==' when comparing with None at line {node.lineno}"
+                        )
+                # Also check if the left side is None
+                if isinstance(node.left, ast.Constant) and node.left.value is None:
+                    self.issues.append(
+                        f"Use 'is' instead of '==' when comparing with None at line {node.lineno}"
+                    )
         self.generic_visit(node)
 
     def get_issues(self):
