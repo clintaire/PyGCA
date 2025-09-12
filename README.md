@@ -85,7 +85,7 @@ pip install -e .
 Analyze a Python file:
 
 ```bash
-python -m pygca analyze path/to/your_script.py
+python -m bot.cli analyze path/to/your_script.py
 ```
 
 Sample output:
@@ -127,7 +127,7 @@ PyGCA would detect:
 Check specific operator categories:
 
 ```bash
-python -m pygca analyze --operators arithmetic,bitwise example.py
+python -m bot.cli analyze --operators arithmetic,bitwise example.py
 ```
 
 ### Configuration
@@ -148,7 +148,7 @@ division_by_zero = "Custom warning: Possible division by zero at {line}"
 Analyze large codebases with resource monitoring:
 
 ```bash
-python -m pygca analyze --profile large_project/
+python -m bot.cli analyze --profile large_project/
 ```
 
 Sample profile output:
@@ -164,8 +164,30 @@ CPU utilization: 32%
 Run the test suite:
 
 ```bash
-pytest tests/ --cov=pygca --cov-report=term-missing
+python chkCode.py
 ```
+
+Or run with coverage and HTML report:
+
+```bash
+python rtests.py
+```
+
+## Code Formatting
+
+We use [black](https://github.com/psf/black) for automatic code formatting. Please format your code before committing:
+
+```bash
+black .
+```
+
+Or format a specific file:
+
+```bash
+black bot/cli.py
+```
+
+This ensures a consistent code style across the project.
 
 ## Contributing
 
@@ -183,9 +205,9 @@ See our [Contribution Guidelines](CONTRIBUTING.md) for details.
 
 For full documentation and API reference, visit:
 
-- [API Reference](docs/api_reference.md)
+- [Reference](docs/reference.md)
 - [Usage Examples](docs/examples.md)
-- [Configuration Guide](docs/configuration.md)
+- [Motivation](docs/motivation.md)
 
 ## Comparison with Similar Tools
 
@@ -209,6 +231,10 @@ For full documentation and API reference, visit:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Reports
+
+- Coverage reports are generated in `reports/coverage/` after running `python rtests.py`.
 
 ## Real-world Use Cases
 

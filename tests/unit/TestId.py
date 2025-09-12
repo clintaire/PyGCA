@@ -1,6 +1,6 @@
 import ast
 
-from bot.identity_membership.identity_checker import IdentityOperatorChecker
+from bot.IdMemb.IdChk import IdentityOperatorChecker
 from bot.utils import set_parents
 
 

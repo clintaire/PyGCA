@@ -67,7 +67,7 @@ for issue in issues:
 
 ### Documentation
 
-[API Reference](api_reference.md) | [Usage Examples](examples.md)
+[Reference](reference.md) | [Usage Examples](examples.md)
 
 ## Key Features
 
@@ -111,14 +111,18 @@ custom_message = "Please avoid using '==' for comparison with None. Use 'is' ins
 Run the test suite to verify PyGCA works correctly:
 
 ```bash
-pytest
+python chkCode.py
 ```
 
-For test coverage information:
+Or run with coverage and HTML report:
 
 ```bash
-pytest --cov=bot
+python rtests.py
 ```
+
+## Reports
+
+- Coverage reports are generated in `reports/coverage/` after running `python rtests.py`.
 
 ## Contributing
 

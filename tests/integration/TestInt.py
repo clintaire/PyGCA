@@ -1,7 +1,7 @@
 import ast
 
-from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
-from bot.comparison.comparison_checker import ComparisonOperatorChecker
+from bot.Arith.ArithChk import ArithmeticOperatorChecker
+from bot.Comp.CompChk import ComparisonOperatorChecker
 from bot.utils import set_parents
 
 

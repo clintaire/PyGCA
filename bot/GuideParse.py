@@ -1,5 +1,7 @@
 import os
 
+from bot.CfgParse import ConfigLoader
+
 
 class GuidelineParser:
     def __init__(self, readme_file="README.md", contributing_file="CONTRIBUTING.md"):

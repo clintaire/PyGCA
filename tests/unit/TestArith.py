@@ -1,6 +1,6 @@
 import ast
 
-from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
+from bot.Arith.ArithChk import ArithmeticOperatorChecker
 from bot.utils import set_parents
 
 

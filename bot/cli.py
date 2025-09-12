@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Command-line interface for PyGCA.
+Command-line interface for the General Code Analyzer (bot).
 
 This module provides the command-line interface for the Python General Code
 Analyzer. It allows users to scan Python files for various operator issues and
@@ -12,12 +12,12 @@ import os
 import sys
 from typing import Dict, List
 
-from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
-from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
-from bot.comparison.comparison_checker import ComparisonOperatorChecker
-from bot.identity_membership.identity_checker import IdentityOperatorChecker
-from bot.identity_membership.membership_checker import MembershipOperatorChecker
-from bot.logical.logical_checker import LogicalOperatorChecker
+from bot.Arith.ArithChk import ArithmeticOperatorChecker
+from bot.Bitwise.bitwise_checker import BitwiseOperatorChecker
+from bot.Comp.CompChk import ComparisonOperatorChecker
+from bot.IdMemb.IdChk import IdentityOperatorChecker
+from bot.IdMemb.MembChk import MembershipOperatorChecker
+from bot.Logic.LogChk import LogicalOperatorChecker
 from bot.utils import set_parents
 
 
@@ -113,7 +113,7 @@ def main() -> int:
     Returns:
         Exit code (0 for success, non-zero for errors)
     """
-    parser = argparse.ArgumentParser(description="PyGCA - Python General Code Analyzer")
+    parser = argparse.ArgumentParser(description="General Code Analyzer (bot)")
     parser.add_argument(
         "files", nargs="+", help="Python files or directories to analyze"
     )
@@ -157,7 +157,10 @@ def main() -> int:
                             print(f"Checker error: {err}")
                             error_count += 1
                         except Exception as err:
-                            print(f"Unexpected error analyzing {file_path}:" f" {err}")
+                            print(
+                                f"Unexpected error analyzing {file_path}:"
+                                f" {err}"
+                            )
                             error_count += 1
         else:
             # If path is a file, analyze it directly

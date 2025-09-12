@@ -1,6 +1,6 @@
 # PyGCA Usage Examples
 
-[Back to Index](index.md) | [API Reference](api_reference.md)
+[Back to Index](index.md) | [Reference](reference.md)
 
 This document provides practical examples of using PyGCA to analyze Python code for operator issues.
 

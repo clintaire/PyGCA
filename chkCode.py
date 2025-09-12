@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Automated code quality checker for PyGCA.
+Automated code quality checker for the General Code Analyzer (bot).
 Run this before committing code to ensure quality standards.
 """
-import os
+
 import subprocess
 import sys
 
 
 def run_command(cmd, description):
     """Run a command and return success status."""
-    print(f"\n===== Running {description} =====")
+    print(f"\n===== Running {description} (General Code Analyzer: bot) =====")
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode == 0:
         print(f"{description} passed!")
@@ -31,7 +31,10 @@ def check_code():
     all_passed = all_passed and black_passed
 
     # Run isort via python -m
-    isort_cmd = [sys.executable, "-m", "isort", "--check", "--profile", "black", "."]
+    isort_cmd = [
+        sys.executable, "-m", "isort", "--check",
+        "--profile", "black", "."
+    ]
     isort_passed = run_command(isort_cmd, "isort import sorter")
     all_passed = all_passed and isort_passed
 
@@ -51,10 +54,11 @@ def check_code():
     all_passed = all_passed and pytest_passed
 
     if all_passed:
-        print("\n✅ All checks passed!")
+        print("\n🗸 All General Code Analyzer (bot) checks passed!")
         return 0
     else:
-        print("\n❌ Some checks failed. Please fix the issues.")
+        print("\n⮾ Some General Code Analyzer (bot) checks failed.")
+        print("Please fix the issues.")
         return 1
 
 

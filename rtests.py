@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Automated test runner for PyGCA with coverage and reports.
+Automated test runner for the General Code Analyzer (bot).
+Generates coverage and reports.
 """
 import os
 import subprocess
@@ -13,7 +14,7 @@ def run_tests():
     """
     Run all tests with coverage and generate reports.
     """
-    print("===== Running PyGCA Tests =====")
+    print("===== Running General Code Analyzer (bot) Tests =====")
 
     # Create directories for reports if they don't exist
     if not os.path.exists("reports"):

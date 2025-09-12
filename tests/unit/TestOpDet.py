@@ -3,12 +3,12 @@ import cProfile
 import pstats
 import time
 
-from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
-from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
-from bot.comparison.comparison_checker import ComparisonOperatorChecker
-from bot.identity_membership.identity_checker import IdentityOperatorChecker
-from bot.identity_membership.membership_checker import MembershipOperatorChecker
-from bot.logical.logical_checker import LogicalOperatorChecker
+from bot.Arith.ArithChk import ArithmeticOperatorChecker
+from bot.Bitwise.bitwise_checker import BitwiseOperatorChecker
+from bot.Comp.CompChk import ComparisonOperatorChecker
+from bot.IdMemb.IdChk import IdentityOperatorChecker
+from bot.IdMemb.MembChk import MembershipOperatorChecker
+from bot.Logic.LogChk import LogicalOperatorChecker
 from bot.utils import set_parents
 
 

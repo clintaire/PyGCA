@@ -1,6 +1,6 @@
 import ast
 
-from bot.logical.logical_checker import LogicalOperatorChecker
+from bot.Logic.LogChk import LogicalOperatorChecker
 from bot.utils import set_parents
 
 
