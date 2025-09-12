@@ -2,21 +2,22 @@
 """
 Command-line interface for PyGCA.
 
-This module provides the command-line interface for the Python General Code Analyzer,
-allowing users to scan Python files for various operator issues and other code quality
-concerns.
+This module provides the command-line interface for the Python General Code
+Analyzer. It allows users to scan Python files for various operator issues and
+other code quality concerns.
 """
 import argparse
 import ast
 import os
 import sys
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from bot.arithmetic.arithmetic_checker import ArithmeticOperatorChecker
 from bot.bitwise.bitwise_checker import BitwiseOperatorChecker
 from bot.comparison.comparison_checker import ComparisonOperatorChecker
 from bot.identity_membership.identity_checker import IdentityOperatorChecker
-from bot.identity_membership.membership_checker import MembershipOperatorChecker
+from bot.identity_membership.membership_checker import \
+    MembershipOperatorChecker
 from bot.logical.logical_checker import LogicalOperatorChecker
 from bot.utils import set_parents
 
@@ -36,7 +37,10 @@ class CheckerError(AnalysisError):
     pass
 
 
-def analyze_file(file_path: str, checkers: List[str] = None) -> Dict[str, List[str]]:
+def analyze_file(
+    file_path: str,
+    checkers: List[str] | None = None
+) -> Dict[str, List[str]]:
     """
     Analyze a Python file for operator issues.
 
@@ -76,7 +80,7 @@ def analyze_file(file_path: str, checkers: List[str] = None) -> Dict[str, List[s
         "logical": LogicalOperatorChecker(),
     }
 
-    if not checkers:
+    if checkers is None:
         checkers = list(all_checkers.keys())
 
     results = {}
@@ -88,7 +92,8 @@ def analyze_file(file_path: str, checkers: List[str] = None) -> Dict[str, List[s
         checker = all_checkers[checker_name]
         try:
             checker.visit(tree)
-            issues = checker.get_issues()
+            # Use getattr to avoid AttributeError if get_issues is missing
+            issues: List[str] = getattr(checker, "get_issues", lambda: [])()
             if issues:
                 results[checker_name] = issues
         except Exception as err:
@@ -107,7 +112,9 @@ def main() -> int:
     Returns:
         Exit code (0 for success, non-zero for errors)
     """
-    parser = argparse.ArgumentParser(description="PyGCA - Python General Code Analyzer")
+    parser = argparse.ArgumentParser(
+        description="PyGCA - Python General Code Analyzer"
+    )
     parser.add_argument(
         "files", nargs="+", help="Python files or directories to analyze"
     )
@@ -151,7 +158,10 @@ def main() -> int:
                             print(f"Checker error: {err}")
                             error_count += 1
                         except Exception as err:
-                            print(f"Unexpected error analyzing {file_path}: {err}")
+                            print(
+                                f"Unexpected error analyzing {file_path}:"
+                                f" {err}"
+                            )
                             error_count += 1
         else:
             # If path is a file, analyze it directly
@@ -169,7 +179,9 @@ def main() -> int:
                 print(f"Checker error: {err}")
                 error_count += 1
             except Exception as err:
-                print(f"Unexpected error analyzing {path}: {err}")
+                print(
+                    f"Unexpected error analyzing {path}: {err}"
+                )
                 error_count += 1
 
     # Output results

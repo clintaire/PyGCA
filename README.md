@@ -56,11 +56,11 @@ PyGCA was created to help developers contribute to open-source projects more eff
 
 ## Key Features
 
-- 🎯 **Multi-operator detection** with specialized checkers
-- 📝 **Actionable suggestions** with line-number references
-- ⚙️ **Customizable rules** via `.pygcconfig` files
-- 📊 **Performance profiling** for large codebases
-- 📄 **Detailed reports** in multiple formats
+- **Multi-operator detection** with specialized checkers
+- **Actionable suggestions** with line-number references
+- **Customizable rules** via `.pygcconfig` files
+- **Performance profiling** for large codebases
+- **Detailed reports** in multiple formats
 
 ## Installation
 
@@ -191,10 +191,10 @@ For full documentation and API reference, visit:
 
 | Feature       | PyGCA | Pylint | Flake8 |
 | ------------- | ----- | ------ | ------ |
-| Python 3.12+  | ✅     | ✅      | ✅      |
+| Python 3.12+  | 🗸     | 🗸      | 🗸      |
 | Custom Rules  | High  | Medium | Low    |
-| CLI Interface | ✅     | ✅      | ✅      |
-| Plugin System | ❌     | ✅      | ✅      |
+| CLI Interface | 🗸     | 🗸      | 🗸      |
+| Plugin System | ⮾     | 🗸      | 🗸      |
 
 ## Troubleshooting
 
