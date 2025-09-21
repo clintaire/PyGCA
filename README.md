@@ -228,10 +228,6 @@ For full documentation and API reference, visit:
 2. **False positives in operator detection**
    - Configure exclusions in your `.pygcconfig` file
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Reports
 
 - Coverage reports are generated in `reports/coverage/` after running `python rtests.py`.
@@ -247,3 +243,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Support for Python 3.12 match/case statements
 - [ ] IDE integrations (VS Code, PyCharm)
 - [ ] Web interface for online analysis
+
+## License
+
+[MIT](./LICENSE) &copy; [Clint Airé](https://github.com/clintaire)
