@@ -30,7 +30,7 @@ setup(
         "PyNaCl==1.5.0",
         "typing_extensions==4.12.2",
         "urllib3==2.2.3",
-        "wrapt==1.16.0",
+        "wrapt==2.0.0",
     ],
     extras_require={
         "dev": [
